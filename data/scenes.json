@@ -1,0 +1,104 @@
+{
+  "inicio_camino": {
+    "id": "inicio_camino",
+    "titulo": "El Camino del Bosque Ceniciento",
+    "descripcion": "La niebla se arrastra entre los troncos retorcidos como dedos buscando algo que aferrar. El aire huele a tierra mojada y a algo más, algo dulzón y podrido que no lográs identificar. A lo lejos, un cuervo grazna una sola vez y luego el silencio vuelve a cerrarse sobre el bosque como un puño.\n\nEl camino se bifurca frente a vos. Hacia la izquierda, un sendero angosto desaparece entre la maleza. Hacia la derecha, se ve el resplandor tenue de lo que podría ser una fogata.",
+    "imagen": null,
+    "musica": null,
+    "opciones": [
+      {
+        "id": "ir_sendero",
+        "texto": "Tomar el sendero angosto hacia la izquierda",
+        "condiciones": [],
+        "efectos": [],
+        "siguiente_escena": "sendero_oscuro"
+      },
+      {
+        "id": "ir_fogata",
+        "texto": "Caminar hacia el resplandor de la fogata",
+        "condiciones": [],
+        "efectos": [],
+        "siguiente_escena": "campamento_extrano"
+      },
+      {
+        "id": "examinar_bosque",
+        "texto": "Examinar el bosque con cuidado antes de decidir",
+        "condiciones": [],
+        "efectos": [
+          { "tipo": "MODIFICAR_ATRIBUTO_TEMPORAL", "atributo": "percepcion", "valor": 0 }
+        ],
+        "siguiente_escena": "examinar_resultado"
+      }
+    ]
+  },
+
+  "sendero_oscuro": {
+    "id": "sendero_oscuro",
+    "titulo": "Sendero Angosto",
+    "descripcion": "Las ramas se cierran sobre tu cabeza formando un techo vivo que apenas deja pasar la luz. Cada paso hunde tus botas en musgo húmedo. De pronto, algo brilla entre las raíces de un árbol caído: una bolsita de cuero, olvidada o escondida.",
+    "imagen": null,
+    "musica": null,
+    "opciones": [
+      {
+        "id": "tomar_bolsa",
+        "texto": "Tomar la bolsa de cuero",
+        "condiciones": [],
+        "efectos": [
+          { "tipo": "DAR_OBJETO", "objeto_id": "monedas_antiguas", "cantidad": 1 },
+          { "tipo": "MODIFICAR_REPUTACION", "faccion": "general", "valor": 0 }
+        ],
+        "siguiente_escena": "inicio_camino"
+      },
+      {
+        "id": "ignorar_bolsa",
+        "texto": "Ignorarla y seguir camino, podría ser una trampa",
+        "condiciones": [],
+        "efectos": [],
+        "siguiente_escena": "inicio_camino"
+      }
+    ]
+  },
+
+  "campamento_extrano": {
+    "id": "campamento_extrano",
+    "titulo": "El Campamento",
+    "descripcion": "Un hombre encapuchado está sentado junto al fuego, atizándolo con una rama sin apartar la vista de las llamas. No parece sorprendido de tu llegada, como si te hubiera estado esperando.\n\n\"Sentate\", dice sin mirarte, \"o seguí tu camino. A mí no me importa cuál de las dos.\"",
+    "imagen": null,
+    "musica": null,
+    "opciones": [
+      {
+        "id": "sentarse",
+        "texto": "Sentarte junto al fuego",
+        "condiciones": [],
+        "efectos": [
+          { "tipo": "MODIFICAR_REPUTACION", "faccion": "general", "valor": 0 }
+        ],
+        "siguiente_escena": "inicio_camino"
+      },
+      {
+        "id": "seguir_camino",
+        "texto": "Seguir tu camino sin decir nada",
+        "condiciones": [],
+        "efectos": [],
+        "siguiente_escena": "inicio_camino"
+      }
+    ]
+  },
+
+  "examinar_resultado": {
+    "id": "examinar_resultado",
+    "titulo": "Ojo Atento",
+    "descripcion": "Al mirar con más cuidado, notás marcas de garras en la corteza de los árboles cercanos al sendero angosto — algo grande pasó por ahí, y no hace mucho. El camino de la fogata, en cambio, parece más transitado y seguro.\n\nAhora sabés un poco más de lo que te espera.",
+    "imagen": null,
+    "musica": null,
+    "opciones": [
+      {
+        "id": "volver_decision",
+        "texto": "Volver a decidir con esta información",
+        "condiciones": [],
+        "efectos": [],
+        "siguiente_escena": "inicio_camino"
+      }
+    ]
+  }
+      }
