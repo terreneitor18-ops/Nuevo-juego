@@ -1,0 +1,13 @@
+{
+  "monedas_antiguas": {
+    "id": "monedas_antiguas",
+    "nombre": "Bolsa de Monedas Antiguas",
+    "descripcion": "Monedas de un reino que ya no existe. Todavía valen algo, para quien sepa a quién vendérselas.",
+    "tipo": "material",
+    "rareza": "comun",
+    "valor": 15,
+    "peso": 0.5,
+    "icono": null,
+    "efectos": []
+  }
+}
