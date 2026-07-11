@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>RPG Narrativo</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Crimson+Pro:wght@400;600&family=Spectral:wght@400;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/themes.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/ui.css">
+  <link rel="stylesheet" href="css/animations.css">
+</head>
+<body>
+
+  <!-- Pantalla de carga: visible hasta que main.js termina de cargar los datos -->
+  <div id="loading-screen">
+    <h1>Cargando aventura...</h1>
+    <div class="loading-spinner"></div>
+    <p id="loading-error"></p>
+  </div>
+
+  <div id="app">
+    <div id="game-container">
+
+      <!-- Barra de estado del personaje, siempre visible -->
+      <div id="player-status-bar"></div>
+
+      <!-- Área de la escena actual -->
+      <div id="scene-area">
+        <div id="scene-panel" class="panel">
+          <img id="scene-image" class="scene-image hidden" alt="">
+          <h2 id="scene-title" class="panel-title"></h2>
+          <p id="scene-text" class="scene-text"></p>
+          <div id="scene-options"></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+    </html>
