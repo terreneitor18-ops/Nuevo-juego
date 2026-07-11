@@ -1,0 +1,61 @@
+/*
+  themes.css
+  Variables globales de diseño: paleta de colores, tipografía, espaciados.
+  Todo el resto del CSS consume estas variables. Cambiar el "look" del
+  juego entero debería poder hacerse (mayormente) tocando solo este archivo.
+*/
+
+:root {
+  /* --- Paleta principal (modo oscuro fantasía) --- */
+  --color-bg: #0f0e17;
+  --color-bg-panel: #1a1825;
+  --color-bg-panel-elevated: #221f2f;
+  --color-border: #3a3552;
+  --color-border-light: #4d4670;
+
+  --color-text-primary: #f2f0f7;
+  --color-text-secondary: #b8b3cc;
+  --color-text-muted: #6f6a8a;
+
+  --color-accent-primary: #a78bfa;   /* violeta - acciones principales */
+  --color-accent-secondary: #f2b134; /* dorado - oro, recompensas */
+  --color-accent-danger: #e0576b;    /* rojo - daño, peligro */
+  --color-accent-success: #4fd1a5;   /* verde - éxito, curación */
+  --color-accent-info: #56b6f2;      /* azul - información, mana */
+
+  /* --- Barras de estado --- */
+  --color-hp: #e0576b;
+  --color-hp-bg: #3a1a20;
+  --color-mana: #56b6f2;
+  --color-mana-bg: #1a2a3a;
+  --color-energy: #f2b134;
+  --color-energy-bg: #3a2f1a;
+  --color-xp: #a78bfa;
+  --color-xp-bg: #241f3a;
+
+  /* --- Tipografía --- */
+  --font-fantasy: 'Cinzel', serif;
+  --font-body: 'Crimson Pro', Georgia, serif;
+  --font-ui: 'Spectral', 'Segoe UI', sans-serif;
+
+  /* --- Espaciados --- */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 40px;
+
+  /* --- Bordes y sombras --- */
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+
+  --shadow-panel: 0 8px 32px rgba(0, 0, 0, 0.45);
+  --shadow-glow-accent: 0 0 20px rgba(167, 139, 250, 0.25);
+  --shadow-inset: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+
+  /* --- Transiciones --- */
+  --transition-fast: 150ms ease;
+  --transition-medium: 300ms ease;
+  --transition-slow: 600ms ease;
+}

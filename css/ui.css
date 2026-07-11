@@ -1,0 +1,146 @@
+/*
+  ui.css
+  Estilos de componentes reutilizables: paneles, botones de opciones,
+  barras de HP/Mana/Energía, tarjetas. Todo lo que "se ve" vive acá.
+*/
+
+/* --- Panel base (usado por escena, inventario, combate, etc.) --- */
+.panel {
+  background: var(--color-bg-panel);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-panel), var(--shadow-inset);
+  padding: var(--spacing-lg);
+}
+
+.panel-title {
+  font-family: var(--font-fantasy);
+  font-size: 1.1rem;
+  letter-spacing: 0.04em;
+  color: var(--color-accent-primary);
+  margin-bottom: var(--spacing-md);
+  text-transform: uppercase;
+}
+
+/* --- Escena: texto narrativo --- */
+#scene-panel .scene-text {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--color-text-primary);
+  white-space: pre-line;
+}
+
+#scene-panel .scene-image {
+  width: 100%;
+  border-radius: var(--radius-md);
+  margin-bottom: var(--spacing-md);
+  display: block;
+}
+
+/* --- Opciones de escena (decisiones del jugador) --- */
+#scene-options {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  margin-top: var(--spacing-lg);
+}
+
+.option-button {
+  background: var(--color-bg-panel-elevated);
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--radius-md);
+  color: var(--color-text-primary);
+  font-family: var(--font-ui);
+  font-size: 0.98rem;
+  text-align: left;
+  padding: var(--spacing-md);
+  cursor: pointer;
+  transition: border-color var(--transition-fast), transform var(--transition-fast),
+              box-shadow var(--transition-fast);
+}
+
+.option-button:active {
+  transform: scale(0.98);
+}
+
+.option-button:hover,
+.option-button:focus-visible {
+  border-color: var(--color-accent-primary);
+  box-shadow: var(--shadow-glow-accent);
+  outline: none;
+}
+
+.option-button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.option-button .option-hint {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  margin-top: 2px;
+}
+
+/* --- Barra de estado del personaje (header) --- */
+#player-status-bar {
+  background: var(--color-bg-panel);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-sm) var(--spacing-md);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.status-row {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.status-name {
+  font-family: var(--font-fantasy);
+  font-size: 0.95rem;
+  color: var(--color-text-primary);
+  flex-shrink: 0;
+}
+
+.status-level {
+  font-family: var(--font-ui);
+  font-size: 0.75rem;
+  color: var(--color-accent-secondary);
+  flex-shrink: 0;
+}
+
+.stat-bar {
+  flex: 1;
+  height: 10px;
+  border-radius: 5px;
+  overflow: hidden;
+  background: var(--color-hp-bg);
+  position: relative;
+}
+
+.stat-bar-fill {
+  height: 100%;
+  border-radius: 5px;
+  transition: width var(--transition-medium);
+}
+
+.stat-bar.hp { background: var(--color-hp-bg); }
+.stat-bar.hp .stat-bar-fill { background: var(--color-hp); }
+
+.stat-bar.mana { background: var(--color-mana-bg); }
+.stat-bar.mana .stat-bar-fill { background: var(--color-mana); }
+
+.stat-bar.energy { background: var(--color-energy-bg); }
+.stat-bar.energy .stat-bar-fill { background: var(--color-energy); }
+
+.stat-label {
+  font-family: var(--font-ui);
+  font-size: 0.7rem;
+  color: var(--color-text-muted);
+  min-width: 62px;
+  text-align: right;
+}

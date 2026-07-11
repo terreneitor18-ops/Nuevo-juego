@@ -1,0 +1,61 @@
+/*
+  animations.css
+  Animaciones y transiciones reutilizables: fade de escenas, aparición
+  de paneles, feedback de botones. Mantenido separado para poder
+  desactivar/ajustar animaciones sin tocar layout ni componentes.
+*/
+
+/* --- Transición de cambio de escena --- */
+.scene-fade-enter {
+  animation: sceneFadeIn var(--transition-medium) ease forwards;
+}
+
+@keyframes sceneFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.scene-fade-exit {
+  animation: sceneFadeOut var(--transition-fast) ease forwards;
+}
+
+@keyframes sceneFadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+}
+
+/* --- Aparición escalonada de opciones --- */
+.option-button {
+  animation: optionSlideIn var(--transition-medium) ease backwards;
+}
+
+@keyframes optionSlideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Respeta preferencia del usuario de reducir movimiento */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
