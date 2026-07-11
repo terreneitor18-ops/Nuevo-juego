@@ -1,0 +1,118 @@
+/*
+  style.css
+  Reset básico + layout estructural de la app. Define el "esqueleto"
+  de la pantalla: dónde va el panel de escena, el panel de personaje, etc.
+  No define look-and-feel de componentes específicos (eso es ui.css).
+*/
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  background: var(--color-bg);
+  color: var(--color-text-primary);
+  font-family: var(--font-body);
+  font-size: 17px;
+  line-height: 1.5;
+  overflow-x: hidden;
+}
+
+#app {
+  min-height: 100vh;
+  min-height: 100dvh; /* mejor soporte mobile (barra de navegador dinámica) */
+  display: flex;
+  flex-direction: column;
+  padding: env(safe-area-inset-top) env(safe-area-inset-right)
+           env(safe-area-inset-bottom) env(safe-area-inset-left);
+}
+
+/* --- Pantalla de carga --- */
+#loading-screen {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-md);
+  background: var(--color-bg);
+  z-index: 1000;
+  transition: opacity var(--transition-slow);
+}
+
+#loading-screen.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#loading-screen h1 {
+  font-family: var(--font-fantasy);
+  font-size: 1.4rem;
+  letter-spacing: 0.08em;
+  color: var(--color-accent-primary);
+  text-transform: uppercase;
+}
+
+.loading-spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid var(--color-border);
+  border-top-color: var(--color-accent-primary);
+  border-radius: 50%;
+  animation: spin 900ms linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+#loading-error {
+  max-width: 90%;
+  color: var(--color-accent-danger);
+  font-family: var(--font-ui);
+  font-size: 0.9rem;
+  text-align: center;
+  display: none;
+}
+
+/* --- Contenedor principal del juego --- */
+#game-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  max-width: 720px;
+  width: 100%;
+  margin: 0 auto;
+  padding: var(--spacing-md);
+  gap: var(--spacing-md);
+}
+
+/* --- Header: barra de estado del personaje siempre visible --- */
+#player-status-bar {
+  flex-shrink: 0;
+}
+
+/* --- Área principal de la escena --- */
+#scene-area {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+/* --- Utilidades genéricas --- */
+.hidden {
+  display: none !important;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  }
